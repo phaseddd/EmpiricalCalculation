@@ -1,0 +1,2 @@
+# EmpiricalCalculation
+简单小页面试一下腾讯云EdgeOne一键部署
