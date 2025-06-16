@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { zonedTimeToUtc, utcToZonedTime } from 'date-fns-tz';
+import { utcToZonedTime } from 'date-fns-tz';
 
 export interface CalculationResult {
   completionTime: string;

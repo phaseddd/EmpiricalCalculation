@@ -55,8 +55,10 @@ const TimeZoneSelector: React.FC<TimeZoneSelectorProps> = ({
         className="w-full"
         size="large"
         filterOption={(input, option) => {
-          if (!option || !option.value) return false;
-          const timezone = timezoneOptions.find(tz => tz.value === option.value);
+          if (!option) return false;
+          const optionValue = typeof option === 'object' && 'value' in option ? option.value : option;
+          if (!optionValue) return false;
+          const timezone = timezoneOptions.find(tz => tz.value === optionValue);
           if (!timezone) return false;
           
           const searchText = input.toLowerCase();

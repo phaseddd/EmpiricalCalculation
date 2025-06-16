@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Card, Input, Button, Form, message, Space } from 'antd';
+import { Card, Input, Button, Form, message } from 'antd';
 import {
   CalculatorOutlined,
   TrophyOutlined,
@@ -66,10 +66,10 @@ const Calculator: React.FC = () => {
       return '每小时获取经验值不能为0';
     }
 
-    if (name === 'currentExp' && name === 'requiredExp') {
-      const currentExpValue = parseNumber(formData.currentExp);
-      const requiredExpValue = parseNumber(formData.requiredExp);
-      if (currentExpValue >= requiredExpValue) {
+    if (name === 'currentExp' || name === 'requiredExp') {
+      const currentExpValue = parseNumber(name === 'currentExp' ? value : formData.currentExp);
+      const requiredExpValue = parseNumber(name === 'requiredExp' ? value : formData.requiredExp);
+      if (currentExpValue >= requiredExpValue && currentExpValue > 0 && requiredExpValue > 0) {
         return '当前经验不能大于或等于升级所需经验';
       }
     }
